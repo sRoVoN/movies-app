@@ -231,6 +231,7 @@ input{
   .card{
     display: grid; 
     grid-template-columns: 1fr;
+    width: 250px;
   }
 }
 .card__title,
