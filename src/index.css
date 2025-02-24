@@ -32,7 +32,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   box-sizing: border-box;
-
+  overflow-x: hidden;
 }
 
 h1 {
@@ -225,6 +225,7 @@ input{
   padding: 1rem;
   border-radius: 14px;
   box-shadow: rgb(206, 203, 203) 0px 3px 12px;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 768px){
   .card{
