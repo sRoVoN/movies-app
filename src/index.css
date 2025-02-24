@@ -204,8 +204,11 @@ input{
 }
 @media screen and (max-width: 768px){
   .movies-table{
-    padding: 1.5rem;
+    padding: 5px;
     font-size: x-small;
+  }
+  .table-cell{
+    padding: 2px;
   }
 }
 
