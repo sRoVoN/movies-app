@@ -11,7 +11,7 @@ export const MoviesProvider = ({children}) => {
     const apiKey = '5f754655';
     const fetchMovies = async (movieTitle, movieYear) => {
       try {
-        const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(movieTitle)}&y=${encodeURIComponent(movieYear)}&type=movie`;
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(movieTitle)}&y=${encodeURIComponent(movieYear)}&type=movie`;
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
