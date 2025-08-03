@@ -1,35 +1,53 @@
-import React from 'react'
+import React from 'react';
 import { CiSearch } from "react-icons/ci";
+import { useMovies } from '../context/MoviesContext';
 
-function SearchInput({title, year, handleChangeTitle, handleChangeYear, handleClick, searchQuery}) {
+function SearchInput() {
+  const {
+    searchTitle,
+    searchYear,
+    setSearchTitle,
+    setSearchYear,
+    fetchMovies
+  } = useMovies();
+
+  const handleSearch = () => {
+    if (searchTitle || searchYear) {
+      fetchMovies(searchTitle, searchYear);
+    }
+  };
+
   return (
     <div className='form'>
       <div className="form-header">Search By Title</div>
       <div className='input-groups'>
         <div className='title-input'>
-        <label>Title</label>
-        <input type='text' placeholder='title ...' className='title-input' value={title} onChange={(e) => handleChangeTitle(e.target.value)} />
+          <label>Title</label>
+          <input
+            type='text'
+            placeholder='title ...'
+            className='title-input'
+            value={searchTitle}
+            onChange={(e) => setSearchTitle(e.target.value)}
+          />
         </div>
         <div className='title-input'>
-        <label>Year</label>
-        <input type='text' placeholder='year ...' className='title-input' value={year} onChange={(e) => handleChangeYear(e.target.value)} />
+          <label>Year</label>
+          <input
+            type='text'
+            placeholder='year ...'
+            className='title-input'
+            value={searchYear}
+            onChange={(e) => setSearchYear(e.target.value)}
+          />
         </div>
-      <button className='search-btn' onClick={() => handleClick(title,year)}>
-        Search
-        <CiSearch className='search-icon' size={20} />
+        <button className='search-btn' onClick={handleSearch}>
+          Search
+          <CiSearch className='search-icon' size={20} />
         </button>
       </div>
-      <div className='response'>
-      <div className='response-header'>Request and Response</div>
-      <div className='response-box'>
-        <div className='query'>
-          <p>Request :</p>
-          <a href={searchQuery} target="_blank" rel="noopener noreferrer">{searchQuery}</a>
-        </div>
-      </div>        
-      </div>
     </div>
-  )
+  );
 }
 
-export default SearchInput
+export default SearchInput;
