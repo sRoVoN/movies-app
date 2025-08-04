@@ -133,7 +133,7 @@ input:focus {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  overflow-x: auto;
+  overflow-x:hidden;
 }
 
 .movies-table {
@@ -233,6 +233,9 @@ input:focus {
   max-width: 1000px;
   box-sizing: border-box;
   overflow-x: auto;
+}
+.query >p{
+  color: #f25395;
 }
 
 @media screen and (min-width: 801px) {
